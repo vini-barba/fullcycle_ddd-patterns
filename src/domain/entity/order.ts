@@ -47,4 +47,8 @@ export default class Order {
   public get items(): OrderItem[] {
     return this._items;
   }
+
+  public set items(items: OrderItem[]) {
+    this._items = items;
+  }
 }
