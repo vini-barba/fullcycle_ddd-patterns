@@ -16,6 +16,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
       rewardPoints: entity.rewardPoints,
     });
   }
+
   async update(entity: Customer): Promise<void> {
     await CustomerModel.update(
       {
