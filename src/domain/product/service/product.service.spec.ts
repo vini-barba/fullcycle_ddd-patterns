@@ -1,10 +1,10 @@
-import Product from "../entity/product";
+import ProductInteface from "../entity/product";
 import ProductService from "./product.service";
 
 describe("Product service unit test", () => {
   it("Should change the price of all products", () => {
-    const product1 = new Product("123", "product1", 10);
-    const product2 = new Product("124", "product2", 20);
+    const product1 = new ProductInteface("123", "product1", 10);
+    const product2 = new ProductInteface("124", "product2", 20);
     const products = [product1, product2];
 
     ProductService.increasePrice(products, 100);

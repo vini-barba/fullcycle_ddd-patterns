@@ -3,7 +3,7 @@ import Order from "../../../../domain/checkout/entity/order";
 import OrderItem from "../../../../domain/checkout/entity/order_item";
 import Customer from "../../../../domain/customer/entity/customer";
 import Address from "../../../../domain/customer/value-object/address";
-import Product from "../../../../domain/product/entity/product";
+import ProductInteface from "../../../../domain/product/entity/product";
 import CustomerModel from "../../../customer/repository/sequelize/customer.model";
 import CustomerRepository from "../../../customer/repository/sequelize/customer.repository";
 import ProductModel from "../../../product/repository/sequelize/product.model";
@@ -45,7 +45,7 @@ describe("Order repository test", () => {
     await customerRepository.create(customer);
 
     const productRepository = new ProductRepository();
-    const product = new Product("123", "Product 1", 10);
+    const product = new ProductInteface("123", "Product 1", 10);
     await productRepository.create(product);
 
     const ordemItem = new OrderItem(
@@ -91,8 +91,8 @@ describe("Order repository test", () => {
     await customerRepository.create(customer);
 
     const productRepository = new ProductRepository();
-    const product1 = new Product("123", "Product 1", 10);
-    const product2 = new Product("124", "Product 2", 20);
+    const product1 = new ProductInteface("123", "Product 1", 10);
+    const product2 = new ProductInteface("124", "Product 2", 20);
     await productRepository.create(product1);
     await productRepository.create(product2);
 
@@ -170,7 +170,7 @@ describe("Order repository test", () => {
     customer.changeAddress(address);
     await customerRepository.create(customer);
     const productRepository = new ProductRepository();
-    const product = new Product("123", "Product 1", 10);
+    const product = new ProductInteface("123", "Product 1", 10);
     await productRepository.create(product);
     const ordemItem = new OrderItem(
       "1",
@@ -195,7 +195,7 @@ describe("Order repository test", () => {
     customer.changeAddress(address);
     await customerRepository.create(customer);
     const productRepository = new ProductRepository();
-    const product = new Product("123", "Product 1", 10);
+    const product = new ProductInteface("123", "Product 1", 10);
     await productRepository.create(product);
     const ordemItem = new OrderItem(
       "1",
@@ -221,9 +221,9 @@ describe("Order repository test", () => {
     await customerRepository.create(customer);
 
     const productRepository = new ProductRepository();
-    const product1 = new Product("123", "Product 1", 10);
-    const product2 = new Product("124", "Product 2", 15);
-    const product3 = new Product("125", "Product 3", 20);
+    const product1 = new ProductInteface("123", "Product 1", 10);
+    const product2 = new ProductInteface("124", "Product 2", 15);
+    const product3 = new ProductInteface("125", "Product 3", 20);
     await productRepository.create(product1);
     await productRepository.create(product2);
     await productRepository.create(product3);

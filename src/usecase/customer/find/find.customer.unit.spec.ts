@@ -1,6 +1,6 @@
 import Customer from "../../../domain/customer/entity/customer";
 import Address from "../../../domain/customer/value-object/address";
-import FindCustomerUseCase from "./find.customer";
+import FindCustomerUseCase from "./find.customer.usecase";
 
 describe("Unit test find customer use case", () => {
   const customer = new Customer("123", "john");

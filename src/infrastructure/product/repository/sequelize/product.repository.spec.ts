@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize-typescript";
-import Product from "../../../../domain/product/entity/product";
+import ProductInteface from "../../../../domain/product/entity/product";
 import ProductModel from "./product.model";
 import ProductRepository from "./product.repository";
 
@@ -24,7 +24,7 @@ describe("Product repository test", () => {
 
   it("Should create a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new ProductInteface("1", "Product 1", 100);
     await productRepository.create(product);
 
     const productModel = await ProductModel.findOne({ where: { id: "1" } });
@@ -38,7 +38,7 @@ describe("Product repository test", () => {
 
   it("Should update a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new ProductInteface("1", "Product 1", 100);
     await productRepository.create(product);
 
     const productModel = await ProductModel.findOne({ where: { id: "1" } });
@@ -63,7 +63,7 @@ describe("Product repository test", () => {
 
   it("Should find a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new ProductInteface("1", "Product 1", 100);
     await productRepository.create(product);
 
     const productModel = await ProductModel.findOne({ where: { id: "1" } });
@@ -78,9 +78,9 @@ describe("Product repository test", () => {
 
   it("Should findAll products", async () => {
     const productRepository = new ProductRepository();
-    const product1 = new Product("1", "Product 1", 100);
+    const product1 = new ProductInteface("1", "Product 1", 100);
     await productRepository.create(product1);
-    const product2 = new Product("2", "Product 2", 200);
+    const product2 = new ProductInteface("2", "Product 2", 200);
     await productRepository.create(product2);
 
     const foundProducts = await productRepository.findAll();
