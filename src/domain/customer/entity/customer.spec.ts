@@ -1,18 +1,23 @@
-
 import Address from "../value-object/address";
 import Customer from "./customer";
 
 describe("Customer unit test", () => {
   it("Should throw error when id is empty", () => {
     expect(() => {
-      const customer = new Customer("", "vini");
-    }).toThrowError("Id is required");
+      new Customer("", "vini");
+    }).toThrow("customer: Id is required");
   });
 
   it("Should throw error when name is empty", () => {
     expect(() => {
-      const customer = new Customer("123", "");
-    }).toThrowError("Name is required");
+      new Customer("123", "");
+    }).toThrow("customer: Name is required");
+  });
+
+  it("Should throw error when name and id are empty", () => {
+    expect(() => {
+      new Customer("", "");
+    }).toThrow("customer: Id is required,customer: Name is required");
   });
 
   it("Should change name", () => {
@@ -28,7 +33,7 @@ describe("Customer unit test", () => {
     const customer = new Customer("123", "john");
     expect(() => {
       customer.changeName("");
-    }).toThrowError("Name is required");
+    }).toThrow("customer: Name is required");
   });
 
   it("Should activate user", () => {
@@ -46,7 +51,7 @@ describe("Customer unit test", () => {
 
     expect(() => {
       customer.activate();
-    }).toThrowError("Address is mandatory to activate a customer");
+    }).toThrow("Address is mandatory to activate a customer");
   });
 
   it("Should deactivate user", () => {
