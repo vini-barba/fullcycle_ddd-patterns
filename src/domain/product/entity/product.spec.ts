@@ -13,6 +13,12 @@ describe("Product unit test", () => {
     }).toThrow("product: Name is required");
   });
 
+  it("Should throw error when id is empty", () => {
+    expect(() => {
+      new Product("", "", 100);
+    }).toThrow("product: Id is required,product: Name is required");
+  });
+
   it("Should change name", () => {
     const product = new Product("123", "product 1", 100);
     const expectedName = "product 2";
